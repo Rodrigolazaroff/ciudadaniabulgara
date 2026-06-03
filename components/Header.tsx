@@ -35,7 +35,7 @@ export function Header() {
               className="brand-mark"
               priority
             />
-            <span>Ciudadanía Búlgara <span className="ok">OK</span></span>
+            <span>Ciudadanía Búlgara</span>
           </a>
           <nav className="nav">
             {links.map(([text, href]) => (

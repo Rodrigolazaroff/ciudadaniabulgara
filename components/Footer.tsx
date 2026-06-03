@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Whatsapp, Instagram } from '@/lib/icons';
+import { Whatsapp, Instagram, Mail } from '@/lib/icons';
 import { WA_LINK } from '@/lib/constants';
 
 export function Footer() {
@@ -11,10 +11,10 @@ export function Footer() {
     <footer className="footer">
       <div className="wrap footer-grid">
         <div>
-          <a href="#inicio" className="footer-logo" aria-label="Ciudadanía Búlgara OK, inicio">
+          <a href="#inicio" className="footer-logo" aria-label="Ciudadanía Búlgara, inicio">
             <Image
               src="/images/logo-light.png"
-              alt="Ciudadanía Búlgara OK"
+              alt="Ciudadanía Búlgara"
               width={624}
               height={500}
               className="footer-logo-img"
@@ -41,9 +41,13 @@ export function Footer() {
           <h5>Hablemos</h5>
           <ul>
             <li><a href={WA_LINK} target="_blank" rel="noopener noreferrer">WhatsApp · +54 9 3777 65-9236</a></li>
+            <li><a href="mailto:ciudadania.bulgaria@gmail.com">ciudadania.bulgaria@gmail.com</a></li>
             <li><a href="https://instagram.com/ciudadaniabulgaraok" target="_blank" rel="noopener noreferrer">@ciudadaniabulgaraok</a></li>
           </ul>
           <div className="footer-social">
+            <a href="mailto:ciudadania.bulgaria@gmail.com" aria-label="Correo electrónico">
+              <Mail size={20} />
+            </a>
             <a href="https://instagram.com/ciudadaniabulgaraok" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <Instagram size={20} />
             </a>
@@ -56,13 +60,13 @@ export function Footer() {
 
       <div className="wrap">
         <p className="disclaimer">
-          Ciudadanía Búlgara OK es un servicio privado de gestión y asesoramiento. No representa al gobierno de
+          Ciudadanía Búlgara es un servicio privado de gestión y asesoramiento. No representa al gobierno de
           Bulgaria ni a sus organismos consulares oficiales.
         </p>
       </div>
 
       <div className="wrap footer-bottom">
-        <p>&copy; {year} Ciudadanía Búlgara OK. Todos los derechos reservados.</p>
+        <p>&copy; {year} Ciudadanía Búlgara. Todos los derechos reservados.</p>
         <p>Argentina · atención por WhatsApp</p>
       </div>
     </footer>

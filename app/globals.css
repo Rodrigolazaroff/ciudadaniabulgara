@@ -720,7 +720,7 @@ h1 {
 
 .trust-strip .wrap {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
   padding: 0;
 }
@@ -728,6 +728,7 @@ h1 {
 .trust-item {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 13px;
   font-size: 0.96rem;
   color: var(--ink-2);
@@ -1330,18 +1331,19 @@ h1 {
 /* About */
 .about-grid {
   display: grid;
-  grid-template-columns: 0.82fr 1.18fr;
-  gap: clamp(40px, 5vw, 72px);
-  align-items: center;
+  grid-template-columns: 0.76fr 1.24fr;
+  gap: clamp(36px, 4vw, 56px);
+  align-items: start;
 }
 
 .about-media {
-  position: relative;
+  position: sticky;
+  top: 100px;
 }
 
 .portrait {
   position: relative;
-  aspect-ratio: 4/5;
+  aspect-ratio: 3/4;
   width: 100%;
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -1444,7 +1446,7 @@ h1 {
   font-size: 1.06rem;
   line-height: 1.62;
   margin: 0 0 16px;
-  max-width: 56ch;
+  max-width: none;
 }
 
 .creds {
@@ -1751,6 +1753,32 @@ h1 {
 .reveal.d2 { transition-delay: 0.12s; }
 .reveal.d3 { transition-delay: 0.18s; }
 .reveal.d4 { transition-delay: 0.24s; }
+
+/* Animacion de entrada direccional (seccion About, independiente) */
+.arv {
+  opacity: 0;
+  transition: opacity 0.7s var(--ease-out-quint), transform 0.7s var(--ease-out-quint);
+  will-change: opacity, transform;
+}
+.arv.a-down  { transform: translateY(-44px); }
+.arv.a-left  { transform: translateX(-56px); }
+.arv.a-right { transform: translateX(56px); }
+.arv.d1 { transition-delay: 0.08s; }
+.arv.d2 { transition-delay: 0.16s; }
+.arv.d3 { transition-delay: 0.24s; }
+.arv.d4 { transition-delay: 0.32s; }
+.about-anim.in-view .arv {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arv {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *,

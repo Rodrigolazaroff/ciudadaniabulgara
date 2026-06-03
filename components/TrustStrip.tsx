@@ -1,13 +1,12 @@
 'use client';
 
-import { Doc, Clock, Language, Check } from '@/lib/icons';
+import { Clock, Language, Check } from '@/lib/icons';
 
 export function TrustStrip() {
   const items = [
-    [Doc, '150+ legajos', 'presentados ante el consulado'],
-    [Check, '95% de viabilidad', 'confirmada en el diagnóstico'],
-    [Language, 'Actas y traducción', 'gestionadas en AR y Bulgaria'],
-    [Clock, 'Respuesta el mismo día', 'por WhatsApp, con Rodrigo'],
+    [Clock, '+4 años', 'de experiencia en el trámite'],
+    [Check, 'Proceso integral', 'conocemos cada etapa en detalle'],
+    [Language, '100% desde Argentina', 'sin necesidad de viajar a Bulgaria'],
   ] as const;
 
   return (

@@ -22,8 +22,8 @@ export function Hero() {
 
   const points = [
     'Diagnóstico de viabilidad sin compromiso',
-    'Gestionamos las actas, acá y en Bulgaria',
-    'Apostillado, traducción oficial y turno consular',
+    'Gestionamos las actas',
+    'Apostillado, traducción y turno consular',
   ];
 
   return (
@@ -88,7 +88,7 @@ export function Hero() {
             Recuperá la herencia de tu familia búlgara y obtené tu <span className="hl">pasaporte europeo</span>.
           </h1>
           <p className="lead reveal d2">
-            Armamos tu legajo de punta a punta: buscamos las actas en Argentina y Bulgaria, apostillamos, traducimos y gestionamos el turno consular. Vos seguís cada paso con Rodrigo.
+            Recuperá tu ciudadanía búlgara sin moverte de Argentina. Nos encargamos de todo: desde las actas hasta el turno consular, con acompañamiento en cada paso.
           </p>
           <ul className="hero-points reveal d3">
             {points.map((p, k) => (
@@ -105,9 +105,6 @@ export function Hero() {
               <Whatsapp size={22} /> Consultar por WhatsApp
             </a>
             <a href="#contacto" className="btn btn-ghost btn-lg hero-ghost">Evaluar mi caso</a>
-          </div>
-          <div className="hero-note reveal d4">
-            <Clock size={16} /> Respuesta el mismo día · Atención personalizada de Rodrigo
           </div>
         </div>
       </div>
