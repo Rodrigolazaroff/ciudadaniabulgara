@@ -96,6 +96,29 @@ export const FlagBg = (props: any) => (
   </svg>
 );
 
+export const Globe = ({ size = 24, ...props }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M12 3c-2.5 3-4 5.5-4 9s1.5 6 4 9" />
+    <path d="M12 3c2.5 3 4 5.5 4 9s-1.5 6-4 9" />
+    <path d="M3 12h18" />
+  </svg>
+);
+
+export const GradCap = ({ size = 24, ...props }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M22 10 12 5 2 10l10 5 10-5Z" />
+    <path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5" />
+    <path d="M22 10v5" />
+  </svg>
+);
+
+export const Plane = ({ size = 24, ...props }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M17.8 19.2 16 11l3.5-3.5A2 2 0 0 0 17 4.5L4.8 8.2a.5.5 0 0 0-.1.9l5 3 .4.4 3 5a.5.5 0 0 0 .9-.1l3.8-12.2" />
+  </svg>
+);
+
 export const Mail = ({ size = 24, ...props }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" {...props}>
     <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" />

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Calendar, Phone, Check } from '@/lib/icons';
+import { Check } from '@/lib/icons';
 
 export function Form() {
   const [submitted, setSubmitted] = useState(false);
@@ -35,22 +35,9 @@ export function Form() {
             <span className="kicker reveal">
               Tu caso <span className="cy">· Случай</span>
             </span>
-            <h2 className="h2 reveal d1">Contame tu situación y te digo si calificás.</h2>
-            <p className="reveal d2">Dejás tus datos, reviso tu caso y te escribo el mismo día por WhatsApp o email. Sin compromiso.</p>
-            <ul className="reveal d3">
-              <li>
-                <span className="ic"><Check size={18} /></span>
-                <span><b>Diagnóstico sin costo</b> de viabilidad real</span>
-              </li>
-              <li>
-                <span className="ic"><Calendar size={18} /></span>
-                <span><b>Respuesta el mismo día</b>, hablás siempre con Rodrigo</span>
-              </li>
-              <li>
-                <span className="ic"><Phone size={18} /></span>
-                <span><b>Sin compromiso:</b> si no es viable, te lo digo antes de empezar</span>
-              </li>
-            </ul>
+            <h2 className="h2 reveal d1">Contanos tu situación.</h2>
+            <p className="reveal d2">Completá el formulario y nuestro equipo se contacta con vos para evaluar tu caso y acompañarte en cada etapa del trámite.</p>
+            <p className="reveal d3" style={{ marginTop: 12, fontStyle: 'italic', color: 'var(--ink-soft)' }}>¿Arrancamos?</p>
           </div>
 
           <div className="form-card reveal d1">
@@ -122,9 +109,6 @@ export function Form() {
                 <button type="submit" className="btn btn-gold btn-lg" style={{ width: '100%' }}>
                   Pedir mi diagnóstico gratis
                 </button>
-                <p className="form-note">
-                  <Check size={15} /> Tus datos solo se usan para responderte. No los compartimos.
-                </p>
               </form>
             ) : (
               <div className="form-ok">

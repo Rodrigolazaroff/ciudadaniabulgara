@@ -640,7 +640,7 @@ h1 {
 
 .hero h1 {
   color: #fff;
-  max-width: 16ch;
+  max-width: 32ch;
 }
 
 .hero h1 .hl {
@@ -908,8 +908,7 @@ h1 {
 }
 
 .proc-aside {
-  position: sticky;
-  top: 110px;
+  position: static;
 }
 
 .proc-aside .h2 {
@@ -1178,8 +1177,7 @@ h1 {
 }
 
 .form-side {
-  position: sticky;
-  top: 110px;
+  position: static;
 }
 
 .form-side .h2 {
@@ -1337,8 +1335,7 @@ h1 {
 }
 
 .about-media {
-  position: sticky;
-  top: 100px;
+  position: static;
 }
 
 .portrait {
@@ -1503,10 +1500,18 @@ h1 {
 }
 
 .ig-handle {
+  display: block;
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 500;
   letter-spacing: -0.02em;
   margin-bottom: 14px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.ig-handle:hover {
+  color: var(--gold-deep);
 }
 
 .ig-band-copy p {
@@ -1874,4 +1879,83 @@ h1 {
     height: 104px;
     right: 0;
   }
+}
+
+/* Cookie Banner */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.cookie-text {
+  color: var(--on-dark-soft);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: 700px;
+  margin: 0;
+}
+
+.cookie-link {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.btn-ghost-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius-pill);
+  padding: 10px 22px;
+  background: transparent;
+  color: var(--on-dark-soft);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.btn-ghost-sm:hover {
+  border-color: rgba(255,255,255,0.5);
+  color: #fff;
+}
+
+.btn-dark-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 10px 22px;
+  background: var(--gold);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.btn-dark-sm:hover {
+  background: var(--gold-bright);
 }

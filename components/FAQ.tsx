@@ -8,10 +8,9 @@ export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   const faqs = [
-    ['¿Cuánto cuesta la gestión?', 'Depende de la complejidad de tu árbol genealógico y de cuántas actas haya que conseguir. La consulta inicial y el diagnóstico de viabilidad no tienen costo.'],
-    ['¿Cuánto tiempo tarda?', 'Entre 6 y 12 meses desde el diagnóstico hasta la ciudadanía, según la disponibilidad de los documentos en los registros.'],
-    ['¿Necesito viajar a Bulgaria?', 'No es obligatorio. Gestionamos todo por correspondencia y presentación consular desde Argentina.'],
-    ['¿Y si no encuentran a mis antepasados?', 'Si la vía no es viable, te lo decimos en la consulta inicial, sin cobrarte nada. No te hacemos arrancar un trámite que no va a prosperar.'],
+    ['¿Cuánto cuesta la gestión?', 'Depende de la complejidad del árbol genealógico y de cuántas actas haya que obtener. La consulta inicial no tiene costo.'],
+    ['¿Cuánto tiempo tarda?', 'Una vez presentado el trámite, no hay plazos establecidos. En general, la confirmación llega después de un año, aunque puede variar.'],
+    ['¿Necesito viajar a Bulgaria?', 'No. Todo el trámite se gestiona desde Argentina a través del consulado.'],
     ['¿Sirve para mis hijos también?', 'Sí. Una vez reconocida tu ciudadanía, podés transmitirla a tus descendientes. Lo contemplamos desde el armado del legajo.'],
   ];
 

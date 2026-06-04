@@ -1,13 +1,12 @@
 'use client';
 
-import { Doc, Clock, Language, Whatsapp } from '@/lib/icons';
-import { WA_LINK } from '@/lib/constants';
+import { Globe, GradCap, Plane } from '@/lib/icons';
 
 export function Problem() {
   const risks = [
-    [Doc, 'Un solo error rechaza todo el legajo', 'Una traducción mal hecha o un dato que no coincide entre actas puede frenar meses de trámite.'],
-    [Clock, 'Los plazos no perdonan', 'Un documento presentado fuera de término te obliga a empezar de cero. El timing decide el resultado.'],
-    [Language, 'La normativa está en búlgaro', 'Interpretar la ley de ciudadanía sin ayuda es lento, agotador y fácil de equivocar.'],
+    [Globe, 'Vivir y trabajar en 27 países sin permiso', 'Con ciudadanía búlgara sos ciudadano europeo. Podés instalarte, trabajar o emprender en cualquier país de la Unión Europea.'],
+    [GradCap, 'Estudiar en universidades europeas con arancel local', 'Accedés a las mejores universidades de Europa pagando lo mismo que un ciudadano del país, sin visa de estudiante.'],
+    [Plane, 'Viajar sin visa a más de 180 destinos', 'El pasaporte búlgaro te abre fronteras en toda Europa, América y Asia sin trámites consulares previos.'],
   ] as const;
 
   return (
@@ -15,23 +14,17 @@ export function Problem() {
       <div className="wrap problem-grid">
         <div className="problem-copy">
           <h2 className="h2 reveal">
-            Bulgaria tiene una de las vías por descendencia más sólidas de Europa. También una de las más burocráticas.
+            Tus abuelos eran búlgaros. Vos podés ser europeo.
           </h2>
           <p className="lead reveal d1" style={{ marginTop: 24 }}>
-            La sangre búlgara te da el derecho. El sistema lo vuelve un laberinto de actas, apostillas y plazos consulares.
-          </p>
-          <p className="reveal d2" style={{ color: 'var(--ink-soft)', marginTop: 16 }}>
-            No tenés que descifrar leyes extranjeras ni perder meses persiguiendo registros.{' '}
-            <strong style={{ color: 'var(--ink)', fontWeight: 600 }}>De eso nos ocupamos nosotros.</strong>
+            Miles de argentinos con sangre búlgara ya tienen su pasaporte europeo. La diferencia es haberlo encarado bien desde el principio con un equipo de profesionales.
           </p>
           <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contacto"
             className="btn btn-dark reveal d3"
             style={{ marginTop: 30 }}
           >
-            <Whatsapp size={18} /> Consultar mi caso
+            Evaluar mi caso
           </a>
         </div>
 

@@ -2,8 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { Whatsapp } from '@/lib/icons';
-import { WA_LINK } from '@/lib/constants';
 
 export function About() {
   const photo = '/images/rodrigo_lazaroff.png';
@@ -29,11 +27,6 @@ export function About() {
     };
   }, []);
 
-  const creds = [
-    ['2021', 'comencé mi propio trámite'],
-    ['3 actas', 'hasta dar con la que servía'],
-    ['100%', 'del proceso, ya recorrido'],
-  ] as const;
 
   return (
     <section ref={sectionRef} className={`section about-anim ${inView ? 'in-view' : ''}`} id="rodrigo">
@@ -62,32 +55,23 @@ export function About() {
         <div className="about-copy">
           <p className="arv a-right d1 about-role">Rodrigo Lazaroff · Ciudadanía búlgara por descendencia</p>
           <p className="arv a-right d2" style={{ textAlign: 'justify' }}>
-            Empecé a mediados de 2021. Como a tantos, la incertidumbre del país me empujó a buscar una puerta en Europa. Mi abuelo, el papá de mi papá, había nacido en Bulgaria y terminó en Goya, Corrientes, después de la Segunda Guerra. El derecho lo tenía en la sangre. El problema era el papelerío.
+            Empecé a mediados de 2021. Como a tantos, la falta de perspectivas en el país me empujó a buscar una puerta en Europa. Mi abuelo había nacido en Bulgaria y terminó en Goya, Corrientes, como consecuencia de la Segunda Guerra Mundial. El derecho lo tenía en la sangre. El problema era el trámite.
           </p>
           <p className="arv a-right d2" style={{ textAlign: 'justify' }}>
-            Encontré el certificado de nacimiento de mi papá, pero era una foto en blanco y negro, no el original. No lo sabía. Apostillé, traduje, gasté. Recién con todo hecho me avisaron que sin el original no servía.
+            Encontré un documento de mi abuelo, pero era una foto en blanco y negro, no el original. No lo sabía. Apostillé, traduje, gasté. Recién con todo hecho me comunicaron que sin el original no servía nada.
           </p>
           <p className="arv a-right d3" style={{ textAlign: 'justify' }}>
-            Fui por el acta de defunción de mi abuelo y tampoco servía. Pagué abogados para corregirla, llegué hasta la justicia, y el juez dijo que no. Estuve frustrado mucho tiempo.
+            Fui por otro documento y tampoco servía. Pagué abogados para corregir la situación, llegué hasta la justicia, y el juez dijo que no. Estuve frustrado mucho tiempo.
           </p>
           <p className="arv a-right d3" style={{ textAlign: 'justify' }}>
-            Hasta que apareció el acta de matrimonio original de mi abuelo. Esa sí. Volví a empezar de cero: legalizaciones, apostillas, traducción, turno en la embajada, entrevista con la cónsul y los papeles camino a Bulgaria. Hoy espero la respuesta.
+            Hasta que apareció un tercer documento original de mi abuelo. Ese sí. Volví a empezar de cero: legalizaciones, apostillas, traducción, turno en la embajada, entrevista con la cónsul y los papeles camino a Bulgaria.
           </p>
           <p className="arv a-right d3" style={{ textAlign: 'justify' }}>
-            Cada error lo aprendí pagándolo. Por eso hoy acompañamos tu trámite desde el primer documento, para que no pierdas los años ni el dinero que perdí yo.
+            Cada error lo aprendí pagándolo. Por eso armé un equipo que acompaña tu trámite desde el primer documento, para que no pierdas los años ni el dinero que perdí yo.
           </p>
 
-          <div className="creds arv a-right d3">
-            {creds.map(([n, label], k) => (
-              <div className="cred" key={k}>
-                <span className="cred-n">{n}</span>
-                <span className="cred-l">{label}</span>
-              </div>
-            ))}
-          </div>
-
-          <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-gold arv a-right d4" style={{ marginTop: 30 }}>
-            <Whatsapp size={18} /> Hablemos de tu caso
+          <a href="#contacto" className="btn btn-gold arv a-right d4" style={{ marginTop: 30 }}>
+            Evaluar mi caso
           </a>
         </div>
       </div>

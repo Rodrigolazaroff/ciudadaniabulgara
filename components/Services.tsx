@@ -4,9 +4,9 @@ import { Check, Doc, Calendar } from '@/lib/icons';
 
 export function Services() {
   const pillars = [
-    [Check, 'Diagnóstico sin vueltas', 'Revisamos tu árbol genealógico y te decimos si calificás antes de que gastes un peso. Si no es viable, te lo decimos.'],
-    [Doc, 'Legajo completo, a tu nombre', 'Buscamos, apostillamos y traducimos cada acta en Argentina y en Bulgaria. Vos no perseguís registros.'],
-    [Calendar, 'Turno consular gestionado', 'Coordinamos la presentación en el consulado y te acompañamos hasta tener el pasaporte en la mano.'],
+    [Check, '¿Calificás?', 'Revisamos tu árbol genealógico y confirmamos si el caso es viable.'],
+    [Doc, 'La documentación', 'Actas, apostillas y traducciones. De la burocracia nos encargamos nosotros.'],
+    [Calendar, 'El consulado', 'Coordinamos el turno y te acompañamos en la entrevista.'],
   ] as const;
 
   return (
@@ -14,7 +14,7 @@ export function Services() {
       <div className="wrap">
         <div className="s-head" style={{ maxWidth: 620 }}>
           <span className="kicker reveal">Cómo trabajamos</span>
-          <h2 className="h2 reveal d1">Lo que resolvemos por vos</h2>
+          <h2 className="h2 reveal d1">Vos traés tu historia. Nosotros hacemos el resto.</h2>
         </div>
         <div className="pillars">
           {pillars.map(([Icon, title, desc], k) => (

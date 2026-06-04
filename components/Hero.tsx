@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { Whatsapp, Arrow, ArrowL, Check, Clock } from '@/lib/icons';
-import { WA_LINK } from '@/lib/constants';
+import { Arrow, ArrowL } from '@/lib/icons';
 
 export function Hero() {
   // 4 slots del carousel
@@ -19,12 +18,6 @@ export function Hero() {
     const t = setInterval(() => setI(p => (p + 1) % imgs.length), 5000);
     return () => clearInterval(t);
   }, []);
-
-  const points = [
-    'Diagnóstico de viabilidad sin compromiso',
-    'Gestionamos las actas',
-    'Apostillado, traducción y turno consular',
-  ];
 
   return (
     <section className="hero" id="inicio">
@@ -90,20 +83,7 @@ export function Hero() {
           <p className="lead reveal d2">
             Recuperá tu ciudadanía búlgara sin moverte de Argentina. Nos encargamos de todo: desde las actas hasta el turno consular, con acompañamiento en cada paso.
           </p>
-          <ul className="hero-points reveal d3">
-            {points.map((p, k) => (
-              <li key={k}>
-                <span className="tick">
-                  <Check size={14} />
-                </span>
-                {p}
-              </li>
-            ))}
-          </ul>
           <div className="hero-cta-row reveal d3">
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-wa btn-lg">
-              <Whatsapp size={22} /> Consultar por WhatsApp
-            </a>
             <a href="#contacto" className="btn btn-ghost btn-lg hero-ghost">Evaluar mi caso</a>
           </div>
         </div>
