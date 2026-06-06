@@ -58,7 +58,12 @@ export function Form() {
     try {
       if (!ENDPOINT) throw new Error('Falta NEXT_PUBLIC_SHEET_ENDPOINT');
       // form-urlencoded => request "simple", sin preflight CORS con Apps Script.
-      await fetch(ENDPOINT, { method: 'POST', body: payload });
+      const res = await fetch(ENDPOINT, { method: 'POST', body: payload });
+      const data = await res.json().catch(() => null);
+      // Solo es éxito si el script confirma que guardó la fila.
+      if (!data || data.ok !== true) {
+        throw new Error('El script no confirmó el guardado: ' + JSON.stringify(data));
+      }
       setStatus('ok');
       setFormData({ nombre: '', apellido: '', email: '', telefono: '', mensaje: '', website: '' });
       setTimeout(() => setStatus('idle'), 6000);
