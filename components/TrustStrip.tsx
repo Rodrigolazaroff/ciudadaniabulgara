@@ -13,7 +13,7 @@ export function TrustStrip() {
     <section className="trust-strip" aria-label="Por qué confiar en nosotros">
       <div className="wrap">
         {items.map(([Icon, strong, rest], k) => (
-          <div className="trust-item" key={k}>
+          <div className={`trust-item reveal d${k + 1}`} key={k}>
             <Icon size={22} />
             <span>
               <b>{strong}</b> {rest}

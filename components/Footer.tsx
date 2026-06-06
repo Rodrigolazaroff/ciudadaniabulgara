@@ -10,7 +10,7 @@ export function Footer() {
   return (
     <footer className="footer">
       <div className="wrap footer-grid">
-        <div>
+        <div className="reveal">
           <a href="#inicio" className="footer-logo" aria-label="Ciudadanía Búlgara, inicio">
             <Image
               src="/images/logo-light.png"
@@ -26,7 +26,7 @@ export function Footer() {
           </p>
         </div>
 
-        <div>
+        <div className="reveal d1">
           <h5>Navegación</h5>
           <ul>
             <li><a href="#inicio">Inicio</a></li>
@@ -37,7 +37,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
+        <div className="reveal d2">
           <h5>Hablemos</h5>
           <ul>
             <li><a href={WA_LINK} target="_blank" rel="noopener noreferrer">WhatsApp · +54 9 3777 65-9236</a></li>

@@ -1255,6 +1255,24 @@ h1 {
   gap: 16px;
 }
 
+.phone-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+}
+
+.phone-cc {
+  width: auto !important;
+  padding-right: 10px !important;
+  cursor: pointer;
+}
+
+.form-error {
+  margin: 0 0 14px;
+  color: var(--red);
+  font-size: 0.9rem;
+}
+
 .form-note {
   font-size: 0.86rem;
   color: var(--ink-soft);

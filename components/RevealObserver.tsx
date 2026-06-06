@@ -4,12 +4,6 @@ import { useEffect } from 'react';
 
 export function RevealObserver() {
   useEffect(() => {
-    const revealAll = () => {
-      document.querySelectorAll('.reveal:not(.in)').forEach(el => {
-        el.classList.add('in');
-      });
-    };
-
     const revealInView = () => {
       const vh = window.innerHeight || document.documentElement.clientHeight;
       document.querySelectorAll('.reveal:not(.in)').forEach(el => {
@@ -36,20 +30,22 @@ export function RevealObserver() {
       );
 
       document.querySelectorAll('.reveal:not(.in)').forEach(el => obs!.observe(el));
+
+      return () => {
+        if (obs) obs.disconnect();
+      };
     }
 
+    // Fallback solo si el navegador no soporta IntersectionObserver:
+    // revelar por scroll, asi nada queda oculto.
     requestAnimationFrame(revealInView);
     const onScroll = () => revealInView();
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
 
-    const fail = setTimeout(revealAll, 700);
-
     return () => {
-      if (obs) obs.disconnect();
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
-      clearTimeout(fail);
     };
   }, []);
 
