@@ -15,8 +15,9 @@ export function RevealObserver() {
     };
 
     let obs: IntersectionObserver | null = null;
+    const hasIO = typeof IntersectionObserver !== 'undefined';
 
-    if ('IntersectionObserver' in window) {
+    if (hasIO) {
       obs = new IntersectionObserver(
         (entries) => {
           entries.forEach(e => {
