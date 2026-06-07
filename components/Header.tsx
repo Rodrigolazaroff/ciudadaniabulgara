@@ -26,7 +26,7 @@ export function Header() {
     <>
       <header className={`header ${scrolled ? 'scrolled' : ''}`}>
         <div className="wrap header-inner">
-          <a href="#inicio" className="logo" aria-label="Ciudadanía Búlgara OK, inicio">
+          <a href="#inicio" className="logo" aria-label="Ciudadanía Búlgara, inicio">
             <Image
               src="/images/logo-mark.png"
               alt=""
