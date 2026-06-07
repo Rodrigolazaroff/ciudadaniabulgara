@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/logo-light.png',
-        width: 624,
-        height: 500,
+        url: '/images/Logo_ciudadania_bulgara.png',
+        width: 1024,
+        height: 1024,
         alt: 'Ciudadanía Búlgara',
       },
     ],
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     title: 'Ciudadanía Búlgara — Tu pasaporte europeo por descendencia',
     description:
       'Recuperá la herencia de tu familia búlgara y obtené tu pasaporte europeo. Gestión completa, sin errores burocráticos.',
-    images: ['/images/logo-light.png'],
+    images: ['/images/Logo_ciudadania_bulgara.png'],
   },
   robots: {
     index: true,
@@ -92,7 +92,7 @@ const jsonLd = {
       name: SITE_NAME,
       url: SITE_URL,
       description: DESCRIPTION,
-      image: `${SITE_URL}/images/logo-light.png`,
+      image: `${SITE_URL}/images/Logo_ciudadania_bulgara.png`,
       telephone: '+5493777659236',
       email: 'ciudadania.bulgaria@gmail.com',
       priceRange: '$$',
