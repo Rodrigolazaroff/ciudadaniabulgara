@@ -67,7 +67,6 @@ export function Footer() {
 
       <div className="wrap footer-bottom">
         <p>&copy; {year} Ciudadanía Búlgara. Todos los derechos reservados.</p>
-        <p>Argentina</p>
       </div>
     </footer>
   );
