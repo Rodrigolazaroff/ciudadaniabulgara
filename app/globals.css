@@ -61,6 +61,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -541,12 +542,12 @@ h1 {
 
 .hero-dots {
   position: absolute;
-  bottom: 26px;
+  bottom: 18px;
   left: 0;
   right: 0;
   z-index: 4;
   display: flex;
-  gap: 9px;
+  gap: 2px;
   justify-content: center;
 }
 
@@ -557,12 +558,16 @@ h1 {
   border: none;
   background: rgba(255, 255, 255, 0.45);
   transition: 0.3s;
-  padding: 0;
+  /* Area tactil ampliada (~29px) sin agrandar el punto visible. */
+  padding: 10px 7px;
+  background-clip: content-box;
+  box-sizing: content-box;
   cursor: pointer;
 }
 
 .hero-dots button.on {
   background: var(--gold);
+  background-clip: content-box;
   width: 30px;
   border-radius: 5px;
 }
@@ -616,13 +621,10 @@ h1 {
 }
 
 @media (max-width: 680px) {
+  /* En mobile las flechas se superponen al texto del Hero.
+     Se ocultan; la navegacion queda con los dots (y swipe). */
   .hero-arrows {
-    padding: 0 8px;
-  }
-  .hero-arrow {
-    width: 42px;
-    height: 42px;
-    opacity: 0.7;
+    display: none;
   }
 }
 
@@ -1601,12 +1603,14 @@ h1 {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 4px;
 }
 
 .footer ul a {
   font-size: 0.98rem;
   transition: color 0.2s;
+  display: inline-block;
+  padding: 8px 0;
 }
 
 .footer ul a:hover {
