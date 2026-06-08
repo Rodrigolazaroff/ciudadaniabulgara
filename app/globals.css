@@ -445,7 +445,17 @@ h1 {
   background: var(--ink);
   border-radius: 2px;
   margin: 5px 0;
-  transition: 0.3s;
+  transition: transform 0.3s var(--ease), opacity 0.2s;
+}
+
+.burger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.burger.open span:nth-child(2) {
+  opacity: 0;
+}
+.burger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .mobile-menu {

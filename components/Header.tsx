@@ -15,6 +15,12 @@ export function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Bloquea el scroll de fondo mientras el menu mobile esta abierto.
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
   const links = [
     ['El trámite', '#descendencia'],
     ['El proceso', '#proceso'],
@@ -47,9 +53,10 @@ export function Header() {
               <Whatsapp size={18} /> Iniciar Consulta
             </a>
             <button
-              className="burger"
+              className={`burger ${menuOpen ? 'open' : ''}`}
               aria-label="Menú"
-              onClick={() => setMenuOpen(true)}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen(o => !o)}
             >
               <span></span>
               <span></span>
