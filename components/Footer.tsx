@@ -22,7 +22,7 @@ export function Footer() {
           </a>
           <p>
             Gestionamos tu ciudadanía búlgara por descendencia de punta a punta: actas, apostillado, traducción
-            oficial y turno consular. Acompañamiento personal de Rodrigo para Argentina y países limítrofes.
+            oficial y turno consular. Acompañamiento personal para Argentina y países limítrofes.
           </p>
         </div>
 
@@ -67,7 +67,7 @@ export function Footer() {
 
       <div className="wrap footer-bottom">
         <p>&copy; {year} Ciudadanía Búlgara. Todos los derechos reservados.</p>
-        <p>Argentina · atención por WhatsApp</p>
+        <p>Argentina</p>
       </div>
     </footer>
   );
