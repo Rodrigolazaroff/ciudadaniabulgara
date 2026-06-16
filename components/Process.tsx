@@ -4,9 +4,9 @@
 export function Process() {
   const steps = [
     ['Consulta y diagnóstico', 'Analizamos tu árbol genealógico y confirmamos si la vía por descendencia es viable.', ''],
-    ['Reunión de documentación', 'Una vez confirmada la viabilidad, comenzamos a reunir los requisitos.', ''],
-    ['Apostillado y traducción oficial', 'Legalizamos y traducimos cada documento según la norma búlgara, sin inconsistencias.', ''],
-    ['Presentación consular', 'Armamos el legajo y lo presentamos. Seguimiento personal hasta la resolución.', ''],
+    ['Reunión de documentación', 'Una vez confirmada la viabilidad, te guiamos para reunir cada requisito.', ''],
+    ['Apostillado y traducción oficial', 'Gestionamos la apostilla y coordinamos la traducción oficial de cada documento según la norma búlgara, sin inconsistencias.', ''],
+    ['Presentación consular', 'Armamos el legajo y te preparamos para la presentación. Seguimiento personal hasta la resolución.', ''],
   ] as const;
 
   return (
@@ -18,7 +18,7 @@ export function Process() {
           </span>
           <h2 className="h2 reveal d1">De la consulta al pasaporte, en cuatro pasos.</h2>
           <p className="lead reveal d2" style={{ marginTop: 20 }}>
-            Nuestro equipo gestiona cada etapa del trámite con un método claro y ordenado, asegurando que el proceso esté alineado a la normativa vigente en todo momento.
+            Nuestro equipo te acompaña en cada etapa del trámite con un método claro y ordenado, asegurando que el proceso esté alineado a la normativa vigente en todo momento.
           </p>
           <a
             href="#contacto"

@@ -81,7 +81,7 @@ export function Hero() {
             Recuperá la herencia de tu familia búlgara y obtené tu <span className="hl">pasaporte europeo</span>.
           </h1>
           <p className="lead reveal d2">
-            Recuperá tu ciudadanía búlgara sin moverte de Argentina. Nos encargamos de todo: desde las actas hasta el turno consular, con acompañamiento en cada paso.
+            Recuperá tu ciudadanía búlgara sin moverte de Argentina. Te acompañamos en cada paso: validamos tu caso, preparamos la documentación y te guiamos hasta el turno consular.
           </p>
           <div className="hero-cta-row reveal d3">
             <a href="#contacto" className="btn btn-ghost btn-lg hero-ghost">Evaluar mi caso</a>

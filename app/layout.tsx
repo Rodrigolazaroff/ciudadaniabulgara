@@ -4,7 +4,7 @@ import './globals.css';
 const SITE_URL = 'https://www.ciudadaniabulgara.com.ar';
 const SITE_NAME = 'Ciudadanía Búlgara';
 const DESCRIPTION =
-  'Gestionamos tu Ciudadanía Búlgara por descendencia de punta a punta: búsqueda de actas, apostillado, traducción oficial y turno consular. Acompañamiento personal de Rodrigo Lazaroff para argentinos y países limítrofes.';
+  'Te asesoramos y preparamos tu Ciudadanía Búlgara por descendencia: validación del caso, apostillado, traducción oficial y turno consular. Acompañamiento personal para argentinos y países limítrofes.';
 
 export const metadata: Metadata = {
   title: {
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Ciudadanía Búlgara — Tu pasaporte europeo por descendencia',
     description:
-      'Recuperá la herencia de tu familia búlgara y obtené tu pasaporte europeo. Gestión completa, sin errores burocráticos.',
+      'Recuperá la herencia de tu familia búlgara y obtené tu pasaporte europeo. Asesoría y preparación en cada paso, sin errores burocráticos.',
     url: SITE_URL,
     siteName: SITE_NAME,
     locale: 'es_AR',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Ciudadanía Búlgara — Tu pasaporte europeo por descendencia',
     description:
-      'Recuperá la herencia de tu familia búlgara y obtené tu pasaporte europeo. Gestión completa, sin errores burocráticos.',
+      'Recuperá la herencia de tu familia búlgara y obtené tu pasaporte europeo. Asesoría y preparación en cada paso, sin errores burocráticos.',
     images: ['/images/Logo_ciudadania_bulgara.png'],
   },
   robots: {

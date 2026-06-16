@@ -21,7 +21,7 @@ export function Footer() {
             />
           </a>
           <p>
-            Gestionamos tu ciudadanía búlgara por descendencia de punta a punta: actas, apostillado, traducción
+            Te asesoramos y preparamos tu ciudadanía búlgara por descendencia: validación, apostillado, traducción
             oficial y turno consular. Acompañamiento personal para Argentina y países limítrofes.
           </p>
         </div>
