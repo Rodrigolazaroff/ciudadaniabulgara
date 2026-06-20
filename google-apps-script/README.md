@@ -1,23 +1,47 @@
-# Integración del formulario con Google Sheets
+# Integración de los formularios con Google Sheets
 
-El formulario de contacto del sitio envía cada consulta a una hoja de cálculo
-de Google mediante un **Google Apps Script** desplegado como *App web*.
+El sitio envía los datos de **tres formularios** a una misma hoja de cálculo de
+Google mediante un **Google Apps Script** desplegado como *App web*. El script
+rutea cada envío a una pestaña distinta según el campo `tipo`:
 
-## 1. Preparar la hoja
+| Formulario | `tipo` | Pestaña |
+|---|---|---|
+| Contacto | _(vacío)_ | `consultas` |
+| Descargar 2 capítulos (manual) | `descarga` | `descargas` |
+| Comprar el manual | `compra` | `compras` |
 
-Dejá las columnas en este orden exacto (fila 1 = encabezados):
+## 1. Preparar las hojas
+
+En el mismo archivo, creá tres pestañas con estos encabezados en la **fila 1**:
+
+**`consultas`**
 
 | A | B | C | D | E | F | G | H |
 |---|---|---|---|---|---|---|---|
-| ID_Consulta | Fecha | Nombre | Apellido | Email | Teléfono | Link_WhatsApp | Mensaje |
+| ID | Fecha | Nombre | Apellido | Email | Teléfono | Link_WhatsApp | Mensaje |
 
-> Borrá la columna "Email" duplicada para que quede así.
-> La pestaña debe llamarse **`consultas_web`** (o cambiá `SHEET_NAME` en `Code.gs`).
+**`descargas`**
 
-## 2. Crear el script
+| A | B | C |
+|---|---|---|
+| ID | Fecha | Email |
+
+**`compras`**
+
+| A | B | C | D | E | F | G | H |
+|---|---|---|---|---|---|---|---|
+| ID | Fecha | Nombre | Apellido | Email | Teléfono | Link_WhatsApp | Estado |
+
+> Los nombres de las pestañas deben coincidir exactamente con los de la tabla
+> (`consultas`, `descargas`, `compras`). El nombre del archivo es libre.
+> En `compras`, `Estado` arranca en **"pendiente"**; cambialo a **"enviado"**
+> cuando mandes el manual. La columna `Link_WhatsApp` se llena sola con un
+> mensaje listo para avisarle al comprador.
+
+## 2. Crear / actualizar el script
 
 1. En la hoja: **Extensiones → Apps Script**.
-2. Borrá el contenido de `Code.gs` y pegá el de [`Code.gs`](./Code.gs).
+2. Reemplazá el contenido de `Code.gs` por el de [`Code.gs`](./Code.gs).
 3. Guardá (Ctrl+S).
 
 ## 3. Desplegar como App web
@@ -45,5 +69,13 @@ Reiniciá el dev server. Listo.
 
 ## Re-despliegues
 
-Si editás `Code.gs`, **Implementar → Gestionar implementaciones → editar
-(lápiz) → Versión: Nueva → Implementar**. La URL se mantiene.
+Si editás `Code.gs` (por ejemplo, al sumar las pestañas del manual),
+**Implementar → Gestionar implementaciones → editar (lápiz) → Versión: Nueva →
+Implementar**. La URL se mantiene.
+
+## Importante (operación de las compras)
+
+Una fila en `compras` significa que alguien **inició** la compra, **no** que
+pagó. La confirmación del pago llega por **Mercado Pago** (mail + app). Enviá el
+manual completo recién cuando MP confirme, cruzando por nombre/email con la fila
+de `compras`, y marcá `Estado = enviado`.

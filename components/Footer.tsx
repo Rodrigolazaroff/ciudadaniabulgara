@@ -33,6 +33,7 @@ export function Footer() {
             <li><a href="#descendencia">El trámite</a></li>
             <li><a href="#proceso">El proceso</a></li>
             <li><a href="#rodrigo">Quién soy</a></li>
+            <li><a href="#manual">El manual</a></li>
             <li><a href="#contacto">Contacto</a></li>
           </ul>
         </div>

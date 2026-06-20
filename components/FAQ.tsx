@@ -19,7 +19,7 @@ export function FAQ() {
       <div className="wrap faq-grid">
         <div className="faq-intro">
           <h2 className="h2 reveal">Lo que querés saber antes de empezar.</h2>
-          <p className="reveal d1">¿Tenés una duda puntual sobre tu caso? Escribime y te respondo el mismo día.</p>
+          <p className="reveal d1">¿Tenés una duda puntual sobre tu caso? Escribinos y te respondemos el mismo día.</p>
           <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-ghost reveal d2">
             <Whatsapp size={18} /> Preguntar por WhatsApp
           </a>

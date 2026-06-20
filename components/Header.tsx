@@ -25,6 +25,7 @@ export function Header() {
     ['El trámite', '#descendencia'],
     ['El proceso', '#proceso'],
     ['Quién soy', '#rodrigo'],
+    ['El manual', '#manual'],
     ['Contacto', '#contacto'],
   ];
 

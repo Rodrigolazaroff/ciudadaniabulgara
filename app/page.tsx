@@ -5,6 +5,7 @@ import { Problem } from '@/components/Problem';
 import { Services } from '@/components/Services';
 import { Process } from '@/components/Process';
 import { About } from '@/components/About';
+import { Manual } from '@/components/Manual';
 import { FAQ } from '@/components/FAQ';
 import { Form } from '@/components/Form';
 import { Instagram } from '@/components/Instagram';
@@ -23,6 +24,7 @@ export default function Home() {
       <Services />
       <Process />
       <About />
+      <Manual />
       <FAQ />
       <Form />
       <Instagram />

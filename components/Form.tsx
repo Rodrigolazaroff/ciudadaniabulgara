@@ -2,17 +2,7 @@
 
 import { useState } from 'react';
 import { Check } from '@/lib/icons';
-
-// Países habilitados. `dial` es lo que se muestra; `wa` es el prefijo
-// (solo dígitos) con el que se arma el link de wa.me.
-const COUNTRIES = [
-  // AR: el 9 de celular se inserta solo (la gente no lo escribe).
-  // CL/UY/PY: la persona ya escribe su 9 inicial, así que el prefijo no lo lleva.
-  { code: 'AR', flag: '🇦🇷', name: 'Argentina', dial: '+54', wa: '549' },
-  { code: 'CL', flag: '🇨🇱', name: 'Chile', dial: '+56', wa: '56' },
-  { code: 'UY', flag: '🇺🇾', name: 'Uruguay', dial: '+598', wa: '598' },
-  { code: 'PY', flag: '🇵🇾', name: 'Paraguay', dial: '+595', wa: '595' },
-] as const;
+import { COUNTRIES } from '@/lib/constants';
 
 const ENDPOINT = process.env.NEXT_PUBLIC_SHEET_ENDPOINT;
 

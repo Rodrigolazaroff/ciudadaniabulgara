@@ -1,19 +1,20 @@
 /**
- * Ciudadanía Búlgara — endpoint para el formulario de contacto.
+ * Ciudadanía Búlgara — endpoint para los formularios del sitio.
  *
- * Recibe un POST del formulario del sitio y agrega una fila en la hoja
- * "consultas_web". Genera el ID progresivo y el link de WhatsApp.
+ * Recibe un POST y agrega una fila en la hoja que corresponde según `tipo`:
+ *   (sin tipo) / consulta → "consultas"
+ *       A ID | B Fecha | C Nombre | D Apellido | E Email | F Teléfono | G Link_WhatsApp | H Mensaje
+ *   descarga              → "descargas"
+ *       A ID | B Fecha | C Email
+ *   compra                → "compras"
+ *       A ID | B Fecha | C Nombre | D Apellido | E Email | F Teléfono | G Link_WhatsApp | H Estado
  *
- * Columnas de la hoja (en este orden):
- *   A ID_Consulta | B Fecha | C Nombre | D Apellido | E Email
- *   F Teléfono | G Link_WhatsApp | H Mensaje
+ * Una fila en "compras" significa que alguien INICIÓ la compra, no que pagó:
+ * la confirmación del pago llega por Mercado Pago. Enviá el manual recién
+ * cuando MP confirme, y marcá la columna Estado como "enviado".
  *
  * Ver README.md (misma carpeta) para los pasos de despliegue.
  */
-
-// Nombre exacto de la pestaña dentro del archivo. Cambialo si tu pestaña
-// no se llama "consultas_web".
-var SHEET_NAME = 'consultas_web';
 
 function doPost(e) {
   var lock = LockService.getScriptLock();
@@ -28,34 +29,10 @@ function doPost(e) {
       return _json({ ok: true, skipped: true });
     }
 
-    var nombre = _clean(p.nombre);
-    var apellido = _clean(p.apellido);
-    var email = _clean(p.email);
-    var telefono = _clean(p.telefono);   // visible, ej "+54 11 2345 6789"
-    var waDigits = _onlyDigits(p.wa);    // para el link, ej "5491123456789"
-    var mensaje = _clean(p.mensaje);
-
-    var ss = SpreadsheetApp.getActiveSpreadsheet();
-    var sheet = SHEET_NAME ? ss.getSheetByName(SHEET_NAME) : ss.getSheets()[0];
-    if (!sheet) sheet = ss.getSheets()[0];
-
-    var id = _nextId(sheet);
-    var fecha = _now();
-    var link = _waLink(waDigits, nombre);
-
-    // A..H en una sola escritura. La columna G (Link_WhatsApp) se escribe
-    // como fórmula HYPERLINK para que sea clickeable en la celda.
-    var row = sheet.getLastRow() + 1;
-    sheet.getRange(row, 1, 1, 8).setValues([[
-      id, fecha, nombre, apellido, email, telefono, '', mensaje
-    ]]);
-    if (link) {
-      sheet.getRange(row, 7).setFormula(
-        '=HYPERLINK("' + link + '";"Escribir por WhatsApp")'
-      );
-    }
-
-    return _json({ ok: true, id: id });
+    var tipo = _clean(p.tipo);
+    if (tipo === 'descarga') return _saveDescarga(p);
+    if (tipo === 'compra') return _saveCompra(p);
+    return _saveConsulta(p);
   } catch (err) {
     return _json({ ok: false, error: String(err) });
   } finally {
@@ -66,6 +43,53 @@ function doPost(e) {
 // Permite probar el deploy abriendo la URL en el navegador.
 function doGet() {
   return _json({ ok: true, status: 'endpoint activo' });
+}
+
+/** Consulta del formulario de contacto → hoja "consultas". */
+function _saveConsulta(p) {
+  var sheet = _sheet('consultas');
+  var id = _nextId(sheet);
+  var nombre = _clean(p.nombre);
+  var link = _waLink(_onlyDigits(p.wa), nombre, 'consulta');
+  var row = sheet.getLastRow() + 1;
+  sheet.getRange(row, 1, 1, 8).setValues([[
+    id, _now(), nombre, _clean(p.apellido), _clean(p.email),
+    _clean(p.telefono), '', _clean(p.mensaje)
+  ]]);
+  if (link) sheet.getRange(row, 7).setFormula(_hyperlink(link, 'Escribir por WhatsApp'));
+  return _json({ ok: true, id: id });
+}
+
+/** Descarga del lead magnet (2 capítulos) → hoja "descargas". */
+function _saveDescarga(p) {
+  var sheet = _sheet('descargas');
+  var id = _nextId(sheet);
+  var row = sheet.getLastRow() + 1;
+  sheet.getRange(row, 1, 1, 3).setValues([[ id, _now(), _clean(p.email) ]]);
+  return _json({ ok: true, id: id });
+}
+
+/** Inicio de compra del manual → hoja "compras". Estado arranca en "pendiente". */
+function _saveCompra(p) {
+  var sheet = _sheet('compras');
+  var id = _nextId(sheet);
+  var nombre = _clean(p.nombre);
+  // Link listo para avisar al comprador (con el saludo de compra) una vez enviado el manual.
+  var link = _waLink(_onlyDigits(p.wa), nombre, 'compra');
+  var row = sheet.getLastRow() + 1;
+  sheet.getRange(row, 1, 1, 8).setValues([[
+    id, _now(), nombre, _clean(p.apellido), _clean(p.email),
+    _clean(p.telefono), '', 'pendiente'
+  ]]);
+  if (link) sheet.getRange(row, 7).setFormula(_hyperlink(link, 'Avisar por WhatsApp'));
+  return _json({ ok: true, id: id });
+}
+
+/** Devuelve la pestaña por nombre; si no existe, cae en la primera hoja. */
+function _sheet(name) {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName(name);
+  return sheet ? sheet : ss.getSheets()[0];
 }
 
 /** ID progresivo: máximo real de la columna A + 1 (robusto ante filas borradas). */
@@ -81,15 +105,27 @@ function _nextId(sheet) {
   return max + 1;
 }
 
-/** Link de WhatsApp con el mensaje personalizado (nombre embebido). */
-function _waLink(digits, nombre) {
+/** Link de WhatsApp con el mensaje personalizado según el contexto. */
+function _waLink(digits, nombre, contexto) {
   if (!digits) return '';
   var saludo = nombre ? ('¡Hola ' + nombre + '! ') : '¡Hola! ';
-  var texto = saludo +
-    'Gracias por contactarte con Ciudadanía Búlgara. ' +
-    'Recibimos tu consulta y en breve te acompañamos con tu trámite. ' +
-    '¿Cómo podemos ayudarte?';
+  var texto;
+  if (contexto === 'compra') {
+    texto = saludo +
+      'Soy Rodrigo de Ciudadanía Búlgara. Ya te envié el manual completo por mail, ' +
+      'revisá tu casilla (mirá también el spam). ¡Gracias por tu compra!';
+  } else {
+    texto = saludo +
+      'Gracias por contactarte con Ciudadanía Búlgara. ' +
+      'Recibimos tu consulta y en breve te acompañamos con tu trámite. ' +
+      '¿Cómo podemos ayudarte?';
+  }
   return 'https://wa.me/' + digits + '?text=' + encodeURIComponent(texto);
+}
+
+/** Fórmula HYPERLINK clickeable en la celda. */
+function _hyperlink(url, label) {
+  return '=HYPERLINK("' + url + '";"' + label + '")';
 }
 
 function _now() {
