@@ -5,8 +5,8 @@ export function Process() {
   const steps = [
     ['Consulta y diagnóstico', 'Analizamos tu árbol genealógico y confirmamos si la vía por descendencia es viable.', ''],
     ['Reunión de documentación', 'Una vez confirmada la viabilidad, te guiamos para reunir cada requisito.', ''],
-    ['Apostillado y traducción oficial', 'Gestionamos la apostilla y coordinamos la traducción oficial de cada documento según la norma búlgara, sin inconsistencias.', ''],
-    ['Presentación consular', 'Armamos el legajo y te preparamos para la presentación. Seguimiento personal hasta la resolución.', ''],
+    ['Apostillado y traducción oficial', 'Gestionamos la apostilla y coordinamos la traducción oficial de cada documento.', ''],
+    ['Presentación consular', 'Armamos juntos tu legajo y te preparamos para la entrevista. Seguimiento personal hasta la presentación.', ''],
   ] as const;
 
   return (

@@ -109,67 +109,69 @@ export function Manual() {
 
   return (
     <section className="section cream" id="manual">
-      <div className="wrap manual-grid">
-        <div className="manual-cover-wrap reveal">
-          <div className="manual-cover">
-            <Image
-              src="/images/manual.jpg"
-              alt="Manual de Ciudadanía Búlgara por Descendencia"
-              fill
-              sizes="(max-width: 900px) 90vw, 40vw"
-              className="object-cover"
-            />
-          </div>
-        </div>
-
-        <div className="manual-copy">
+      <div className="wrap">
+        <div className="manual-head">
           <span className="kicker reveal">
             El manual <span className="cy">· Наръчник</span>
           </span>
           <h2 className="h2 reveal d1">
-            Todo el trámite, claro y completo, antes de dar el primer paso.
+            Todo el trámite, explicado en un solo documento.
           </h2>
           <p className="lead reveal d2">
             Reunimos en este manual lo que normalmente se aprende a los golpes: el mapa completo del
             trámite paso a paso, los costos reales, qué documento sirve y cuál te hace perder años, y
-            cómo llegar preparado al consulado. Para que sepas en qué te estás metiendo antes de
-            empezar, y no a ciegas.
+            cómo llegar preparado al consulado.
           </p>
+        </div>
 
-          <ul className="manual-includes reveal d2">
-            {INCLUDES.map((t, i) => (
-              <li key={i}>
-                <span className="manual-check">
-                  <Check size={16} />
-                </span>
-                <span>{t}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="manual-price reveal d3">
-            <span className="manual-price-old">{MANUAL_PRICE_OLD}</span>
-            <span className="manual-price-now">{MANUAL_PRICE}</span>
-            <span className="manual-price-off">{MANUAL_DISCOUNT}</span>
+        <div className="manual-grid">
+          <div className="manual-cover-wrap reveal">
+            <div className="manual-cover">
+              <Image
+                src="/images/manual.jpg"
+                alt="Manual de Ciudadanía Búlgara por Descendencia"
+                fill
+                sizes="(max-width: 900px) 90vw, 40vw"
+                className="object-cover"
+              />
+            </div>
           </div>
 
-          <p className="manual-pitch reveal d3">
-            Leé gratis los primeros 2 capítulos. El manual completo —los 11 capítulos— tiene un
-            precio de {MANUAL_PRICE} y te lo enviamos apenas se confirma el pago.
-          </p>
+          <div className="manual-copy">
+            <ul className="manual-includes reveal">
+              {INCLUDES.map((t, i) => (
+                <li key={i}>
+                  <span className="manual-check">
+                    <Check size={16} />
+                  </span>
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
 
-          <div className="manual-cta reveal d3">
-            <button type="button" className="btn btn-ghost" onClick={() => open('free')}>
-              <Doc size={18} /> Leer 2 capítulos gratis
-            </button>
-            <button type="button" className="btn btn-gold" onClick={() => open('buy')}>
-              Comprar el manual completo
-            </button>
+            <div className="manual-price reveal">
+              <span className="manual-price-old">{MANUAL_PRICE_OLD}</span>
+              <span className="manual-price-now">{MANUAL_PRICE}</span>
+              <span className="manual-price-off">{MANUAL_DISCOUNT}</span>
+            </div>
+
+            <p className="manual-pitch reveal">
+              Leé gratis los primeros 2 capítulos. El manual completo te llega directo a tu correo.
+            </p>
+
+            <div className="manual-cta reveal">
+              <button type="button" className="btn btn-ghost" onClick={() => open('free')}>
+                <Doc size={18} /> Leer 2 capítulos gratis
+              </button>
+              <button type="button" className="btn btn-gold" onClick={() => open('buy')}>
+                Comprar el manual completo
+              </button>
+            </div>
+
+            <p className="manual-cross reveal">
+              ¿Preferís no hacerlo solo? <a href="#contacto">Te acompañamos en todo el trámite.</a>
+            </p>
           </div>
-
-          <p className="manual-cross reveal d3">
-            ¿Preferís no hacerlo solo? <a href="#contacto">Te acompañamos en todo el trámite.</a>
-          </p>
         </div>
       </div>
 

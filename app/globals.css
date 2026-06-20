@@ -1993,10 +1993,25 @@ h1 {
 }
 
 /* ── Manual ──────────────────────────────────────────────────────────── */
+#manual.section {
+  padding-block: clamp(48px, 6vh, 72px);
+}
+
+.manual-head {
+  text-align: center;
+  max-width: 1040px;
+  margin: 0 auto clamp(24px, 3vw, 40px);
+}
+
+.manual-head .lead {
+  max-width: 720px;
+  margin: 16px auto 0;
+}
+
 .manual-grid {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: clamp(36px, 5vw, 64px);
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: clamp(32px, 4vw, 56px);
   align-items: center;
 }
 
@@ -2004,6 +2019,8 @@ h1 {
   position: relative;
   aspect-ratio: 1 / 1;
   width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--line-2);
@@ -2017,18 +2034,18 @@ h1 {
 .manual-includes {
   list-style: none;
   padding: 0;
-  margin: 28px 0 0;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 22px;
 }
 
 .manual-includes li {
   display: flex;
-  gap: 14px;
+  gap: 13px;
   align-items: flex-start;
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 0.95rem;
+  line-height: 1.45;
   color: var(--ink-2);
 }
 
@@ -2049,7 +2066,7 @@ h1 {
   align-items: baseline;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .manual-price-old {
@@ -2087,11 +2104,11 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-top: 24px;
+  margin-top: 18px;
 }
 
 .manual-cross {
-  margin-top: 18px;
+  margin-top: 14px;
   font-size: 0.95rem;
   color: var(--ink-soft);
 }
@@ -2105,6 +2122,9 @@ h1 {
 
 @media (max-width: 900px) {
   .manual-grid {
+    grid-template-columns: 1fr;
+  }
+  .manual-includes {
     grid-template-columns: 1fr;
   }
   .manual-cover {
