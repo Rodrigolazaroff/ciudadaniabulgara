@@ -5,7 +5,7 @@ export const WA_LINK = 'https://wa.me/5493777659236?text=Hola%20Rodrigo,%20quier
 // a mano tras confirmar el pago. Solo viven el PDF gratis (2 capítulos) y el
 // link de pago de Mercado Pago.
 export const MANUAL_FREE_URL =
-  'https://drive.google.com/uc?export=download&id=1vc8uYTpRG_ytfD4gbpMeaB2LV_ozuN6u'; // Drive, descarga directa
+  'https://drive.google.com/file/d/1vc8uYTpRG_ytfD4gbpMeaB2LV_ozuN6u/view'; // Drive, abre el visor del PDF
 export const MANUAL_MP_URL = 'https://mpago.la/1NVaN56'; // Mercado Pago, link de pago ($24.999)
 export const MANUAL_PRICE = '$24.999';
 export const MANUAL_PRICE_OLD = '$49.999';

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { Check, Download, Close } from '@/lib/icons';
+import { Check, Doc, Close } from '@/lib/icons';
 import {
   MANUAL_FREE_URL,
   MANUAL_MP_URL,
@@ -154,13 +154,13 @@ export function Manual() {
           </div>
 
           <p className="manual-pitch reveal d3">
-            Descargá gratis los primeros 2 capítulos. El manual completo —los 11 capítulos— tiene un
+            Leé gratis los primeros 2 capítulos. El manual completo —los 11 capítulos— tiene un
             precio de {MANUAL_PRICE} y te lo enviamos apenas se confirma el pago.
           </p>
 
           <div className="manual-cta reveal d3">
             <button type="button" className="btn btn-ghost" onClick={() => open('free')}>
-              <Download size={18} /> Descargar 2 capítulos gratis
+              <Doc size={18} /> Leer 2 capítulos gratis
             </button>
             <button type="button" className="btn btn-gold" onClick={() => open('buy')}>
               Comprar el manual completo
@@ -194,17 +194,17 @@ export function Manual() {
                   <>
                     <h3>¡Listo!</h3>
                     <p>
-                      Los 2 capítulos se están descargando en otra pestaña. Si no los ves, habilitá
-                      los pop-ups.
+                      Los 2 capítulos se abrieron en otra pestaña. Si no los ves, habilitá los
+                      pop-ups.
                     </p>
                   </>
                 ) : (
                   <>
-                    <h3>Te esperamos en Mercado Pago</h3>
+                    <h3>¡Gracias por tu compra!</h3>
                     <p>
-                      Mercado Pago se abrió en otra pestaña para que completes el pago. Apenas se
-                      confirme, te enviamos el manual completo a la brevedad (puede demorar hasta
-                      24 hs).
+                      Estás a un paso: completá el pago en la pestaña de Mercado Pago y, apenas se
+                      confirme, te enviamos el manual completo a tu correo a la brevedad (puede
+                      demorar hasta 24 hs).
                     </p>
                   </>
                 )}
@@ -216,7 +216,7 @@ export function Manual() {
                 </h3>
                 <p className="modal-text">
                   {modal === 'free'
-                    ? 'Ingresá tu correo y descargá los 2 capítulos.'
+                    ? 'Ingresá tu correo y leé los 2 capítulos.'
                     : 'Completá tus datos para pagar con Mercado Pago. Apenas se confirma el pago, te enviamos el manual a tu correo.'}
                 </p>
 
@@ -310,7 +310,7 @@ export function Manual() {
                 )}
 
                 <button type="submit" className="btn btn-gold btn-lg" style={{ width: '100%' }}>
-                  {modal === 'free' ? 'Descargar' : 'Ir a pagar con Mercado Pago'}
+                  {modal === 'free' ? 'Leer ahora' : 'Ir a pagar con Mercado Pago'}
                 </button>
               </form>
             )}
